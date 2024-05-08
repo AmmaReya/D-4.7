@@ -82,6 +82,7 @@ class Comment(models.Model):
     def dislike(self):
         self.rating -= 1
         self.save()
+<<<<<<< HEAD
 
 
 class Subscription(models.Model):
@@ -95,3 +96,5 @@ class Subscription(models.Model):
         on_delete=models.CASCADE,
         related_name='subscriptions',
     )
+=======
+>>>>>>> 17c9f21ccc6e4eff5df1ad86acbf84c87de46949

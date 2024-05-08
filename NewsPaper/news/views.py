@@ -1,11 +1,15 @@
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.urls import reverse_lazy
+<<<<<<< HEAD
 from django.contrib.auth.decorators import login_required
 from django.db.models import Exists, OuterRef
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_protect
 from .models import Post, Category, Subscription
+=======
+from .models import Post
+>>>>>>> 17c9f21ccc6e4eff5df1ad86acbf84c87de46949
 from datetime import datetime
 from .filters import PostFilter
 from .forms import PostForm
@@ -81,6 +85,7 @@ class PostDelete(PermissionRequiredMixin, DeleteView):
     template_name = 'post_delete.html'
     success_url = reverse_lazy('post_list')
 
+<<<<<<< HEAD
 
 @login_required
 @csrf_protect
@@ -112,3 +117,5 @@ def subscriptions(request):
         {'categories': categories_with_subscriptions},
     )
 
+=======
+>>>>>>> 17c9f21ccc6e4eff5df1ad86acbf84c87de46949

@@ -3,7 +3,10 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from allauth.account.forms import SignupForm
 from django.contrib.auth.models import Group
+<<<<<<< HEAD
 from django.core.mail import send_mail
+=======
+>>>>>>> 17c9f21ccc6e4eff5df1ad86acbf84c87de46949
 
 
 class SignUpForm(UserCreationForm):
