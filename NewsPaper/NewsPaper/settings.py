@@ -48,11 +48,9 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.yandex',
-<<<<<<< HEAD
-    'django_apscheduler'
-=======
->>>>>>> 17c9f21ccc6e4eff5df1ad86acbf84c87de46949
+    'django_apscheduler',
 ]
+
 
 SITE_ID = 1
 
@@ -150,17 +148,14 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
-<<<<<<< HEAD
+
 SITE_URL = 'http://127.0.0.1:8000'
-=======
->>>>>>> 17c9f21ccc6e4eff5df1ad86acbf84c87de46949
 
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_VERIFICATION = 'none'
-<<<<<<< HEAD
 
 EMAIL_BACKAND = 'django.core.mail.backends.console.EmailBackends'
 EMAIL_HOST = 'smtp.yandex.ru'
@@ -173,7 +168,5 @@ DEFAULT_FROM_EMAIL = ''
 
 APSCHEDULER_DATETIME_FORMAT = 'N j, Y, f:s a'
 APSCHEDULER_RUN_NOW_TIMEOUT = 25
-=======
-ACCOUNT_FORMS = {"signup": "accounts.forms.CustomSignupForm"}
 
->>>>>>> 17c9f21ccc6e4eff5df1ad86acbf84c87de46949
+ACCOUNT_FORMS = {"signup": "accounts.forms.CustomSignupForm"}
