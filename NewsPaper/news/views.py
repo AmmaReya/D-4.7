@@ -10,7 +10,8 @@ from .models import Post
 from datetime import datetime
 from .filters import PostFilter
 from .forms import PostForm
-from .tasks import send_email_task, weekly_send_email_task
+from .tasks import send_email_task
+from django.core.cache import cache
 
 
 class PostList(ListView):
@@ -36,6 +37,14 @@ class PostDetail(DetailView):
     model = Post
     template_name = 'post.html'
     context_object_name = 'post'
+
+    def get_object(self, *args, **kwargs):
+        obj = cache.get(f'post-{self.kwargs["pk"]}',
+                        None)
+        if not obj:
+            obj = super().get_object(queryset=self.queryset)
+            cache.set(f'post-{self.kwargs["pk"]}', obj)
+        return obj
 
 
 class PostSearch(ListView):
@@ -67,7 +76,7 @@ class PostCreate(PermissionRequiredMixin, CreateView):
         if self.request.path == '/news/articles/create/':
             post.genre = 'AR'
         post.save()
-        send_email_task.delay(post.pk)
+        #send_email_task.delay(post.pk)
         return super().form_valid(form)
 
 

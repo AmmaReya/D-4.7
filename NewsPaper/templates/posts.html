@@ -9,13 +9,24 @@ Posts
 {% endblock title %}
 
 {% block content %}
-
     <h1></h1>
-    <form action="" method="get">
-        {{ filterset.form.as_p }}
-        <input type="submit" value="Найти" />
-    </form>
-
+<table align = 'center'>
+    <tr>
+        <td>
+            <form>
+                <label for="titleId">Заголовок:</label>
+                <input id="litleId" type="text" name="title">
+                <input type="submit" value="Найти"/>
+            </form>
+        </td>
+        <td>
+            <form action='search/' method="get" >
+                <input type="submit" value="Расширенный поиск" />
+            </form>
+        </td>
+    </tr>
+</table>
+    <h1></h1>
     <h1>Все посты</h1>
     <h3>{% current_time '%b %d %Y' %}</h3>
     <h3>Количество постов: {{paginator.count}}</h3>
@@ -28,6 +39,7 @@ Posts
     {% if posts %}
         <table align = 'center'>
             <tr>
+                <td><b>Автор</b></td>
                 <td><b>Заголовок</b></td>
                 <td><b>Дата публикации</b></td>
                 <td><b>Содержание</b></td>
@@ -38,6 +50,7 @@ Posts
             </tr>
             {% for post in posts %}
             <tr>
+                <td>{{ post.author.author }}</td>
                 <td>{{ post.title|censor }}</td>
                 <td>{{ post.post_time_in|date:'d M Y' }}</td>
                 <td>{{ post.text|truncatechars:20|censor }}</td>
